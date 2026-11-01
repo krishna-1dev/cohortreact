@@ -10,11 +10,11 @@ const Login = ({setToggle}) => {
         <button className='p-2 bg-blue-600 text-white rounded'>Login</button>
       </form>
       <p>Didn't have an account?
-         <span onClick={() => {setToggle(false)}} className='text-blue-600 cursor-pointer'>Register here
+         <span onClick={() => {setToggle((prev) => !prev)}} className='text-blue-600 cursor-pointer'>Register here
         </span>
       </p>
     </div>
   )
 }
 
-export default Login
+export default Login;
