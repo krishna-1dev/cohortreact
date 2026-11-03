@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = ({setToggle}) => {
   return (
     <div className='p-4 flex items-center justify-between bg-black rounded-xl'>
       <div>
@@ -11,7 +11,7 @@ const Navbar = () => {
         <p className='text-white'>About</p>
         <p className='text-white'>Contact</p>
       </div>
-      <button className='text-white p-2 bg-blue-800 rounded-xl cursor-pointer'>Create user</button>
+      <button className='text-white p-2 bg-blue-800 rounded-xl cursor-pointer' onClick={() => setToggle(prev => !prev)}>Create user</button>
     </div>
   )
 }
