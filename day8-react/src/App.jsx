@@ -5,14 +5,21 @@ import Form from './components/Form'
 
 const App = () => {
   const [toggle, setToggle] = useState(false);
+  const [users, setUsers] = useState([]);
+
 
   return (
     <div className='p-3 h-screen flex flex-col gap-4'>
       <Navbar setToggle={setToggle}/>
 
-      {toggle ? <div className='flex'><Usercard/></div>
+      {toggle ? 
+      <div className='flex'>
+        {users.map((elem) => {
+          return <Usercard user={elem}/>
+        })}
+      </div>
        : <div className='flex justify-center items-center h-[70%]'>
-        <Form/></div>}
+        <Form setUsers={setUsers}/></div>}
     </div>
   );
 };

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 
-const Form = () => {
+const Form = ({setUsers}) => {
+
   let {register, handleSubmit, reset, formState: {errors}, } = useForm({mode: "onChange"});
 
   let formSubmit = (data) => {
     console.log(data);
+    setUsers((prev) => [...prev, data]);
     reset();
   };
 
