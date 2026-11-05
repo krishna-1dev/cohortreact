@@ -13,7 +13,7 @@ const Navbar = ({setToggle}) => {
       </div>
       <button className='text-white p-2 bg-blue-800 rounded-xl cursor-pointer' onClick={() => setToggle(prev => !prev)}>Create user</button>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -14,7 +14,7 @@ const App = () => {
        : <div className='flex justify-center items-center h-[70%]'>
         <Form/></div>}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
