@@ -4,8 +4,12 @@ import Usercard from './components/Usercard'
 import Form from './components/Form'
 
 const App = () => {
-  const [toggle, setToggle] = useState(false);
-  const [users, setUsers] = useState([]);
+  
+  const [toggle, setToggle] = useState(true);
+  const [users, setUsers] = useState(() => {
+    return JSON.parse(localStorage.getItem('users')) || [];
+  });
+  console.log(users);
 
 
   return (
@@ -14,12 +18,12 @@ const App = () => {
 
       {toggle ? 
       <div className='flex gap-4'>
-        {users.map((elem) => {
-          return <Usercard user={elem} setToggle={setToggle}/>
+        {users.map((elem,index) => {
+          return <Usercard key={index} user={elem} setToggle={setToggle}/>
         })}
       </div>
        : <div className='flex justify-center items-center h-[70%]'>
-        <Form setUsers={setUsers} setToggle={setToggle}/></div>}
+        <Form setUsers={setUsers} setToggle={setToggle} users ={users}/></div>}
     </div>
   );
 };
