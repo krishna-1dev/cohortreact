@@ -4,7 +4,7 @@ const Usercard = ({user}) => {
   return (
     <div className='p-4 border border-white rounded flex flex-col gap-2 bg-black'>
       <div className='h-40 w-40'>
-        <img src={users.image} alt="" className='object-fit h-full w-full rounded-l'/>
+        <img src={user.image} alt="" className='object-cover h-full w-full rounded-l'/>
       </div>
 
       <div className='flex flex-col gap-1'>

@@ -13,13 +13,13 @@ const App = () => {
       <Navbar setToggle={setToggle}/>
 
       {toggle ? 
-      <div className='flex'>
+      <div className='flex gap-4'>
         {users.map((elem) => {
           return <Usercard user={elem}/>
         })}
       </div>
        : <div className='flex justify-center items-center h-[70%]'>
-        <Form setUsers={setUsers}/></div>}
+        <Form setUsers={setUsers} setToggle={setToggle}/></div>}
     </div>
   );
 };
