@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.4",
+    "@tailwindcss/vite": "^4.3.5",
     "nanoid": "^6.0.2",
     "react-hook-form": "^7.91.0",
-    "tailwindcss": "^4.3.4"
+    "tailwindcss": "^4.3.5"
   }
 }
