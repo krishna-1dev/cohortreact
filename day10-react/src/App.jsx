@@ -4,7 +4,9 @@ import Navbar from './components/Navbar'
 import Cart from './components/Cart'
 
 const App = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  console.log("cart state: ", cartItems);
 
   let products = [
   {
@@ -255,12 +257,12 @@ const App = () => {
 
     {isCartOpen ? (
       <div>
-        <Cart/>
+        <Cart cartItems={cartItems}/>
       </div>
     ) : (
       <div className='grid grid-cols-5 gap-4'>
         {products.map((val) => {
-          return <ProductCard product={val}/>
+          return <ProductCard product={val} setCartItems={setCartItems} key={val.id}/>
         })}
       </div>
     )}      

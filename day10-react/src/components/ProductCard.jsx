@@ -1,7 +1,7 @@
 
 import React from "react";
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product, setCartItems }) => {
   return (
     <div className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
@@ -49,7 +49,7 @@ const ProductCard = ({ product, addToCart }) => {
         </div>
 
         <button
-          onClick={() => addToCart(product)}
+          onClick={() => setCartItems(prev => [...prev, product])}
           className="w-full mt-5 bg-gray-900 text-white py-3 rounded-xl font-semibold text-sm hover:bg-indigo-600 transition duration-300"
         >
           + Add to Cart
