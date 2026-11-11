@@ -1,7 +1,9 @@
 
-  import React, { useState } from 'react'
+  import React, { useState, useContext } from 'react'
+import { MyShop } from '../Context/MyShop'
 
-  const Cart = ({ cartItems }) => {
+  const Cart = () => {
+    let {cartItems} = useContext(MyShop);
 
   const [quantities, setQuantities] = useState({})
 

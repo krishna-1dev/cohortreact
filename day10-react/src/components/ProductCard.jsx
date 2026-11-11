@@ -1,7 +1,9 @@
 
-import React from "react";
+import React, { useContext } from "react";
+import { MyShop } from "../Context/MyShop";
 
-const ProductCard = ({ product, setCartItems }) => {
+const ProductCard = ({ product}) => {
+  let {setCartItems} = useContext(MyShop);
   return (
     <div className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
