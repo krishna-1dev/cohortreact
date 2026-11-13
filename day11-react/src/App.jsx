@@ -1,16 +1,20 @@
+import axios from 'axios'
 import React from 'react'
-import Home from './components/Home'
-import About from './components/About'
-import Contact from './components/Contact'
 
 const App = () => {
-  console.log("app rendering");
+  const getProductsData = async() => {
+    try {
+      let response = await axios.get('https://fakestoreapi.com/products');
+      console.log(response.data); //data is in the promise 
+    } catch(error) {
+      console.log("error in API", error);
+    }
+  }
+  getProductsData();
+  
   return (
     <div>
-      <h1>this is app component</h1>
-      <Home/>
-      <About/>
-      <Contact/>
+     <h1>hello friends</h1>
     </div>
   );
 };
