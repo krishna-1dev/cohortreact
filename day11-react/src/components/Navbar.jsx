@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
-import { MyShop } from '../Context/MyShop'
+import React, {useContext} from 'react'
+import { MyStore } from '../context/MyContext';
 
 const Navbar = () => {
-
-  let {setIsCartOpen} = useContext(MyShop)
-  
+  let { setIsCartOpen } = useContext(MyStore);
   return (
-    <div className='p-5 flex items-center justify-between bg-black rounded'>
-      <div className='text-white'>logo</div>
+    <div className='bg-black rounded p-5 flex items-center justify-between'>
+      <div className='text-white'>Logo</div>
       <div className='flex gap-10 text-xl'>
-        <p className='text-white cursor-pointer' onClick={() => setIsCartOpen(false)}>Home</p>
-        <p className='text-white cursor-pointer' onClick={() => setIsCartOpen(true)}>Cart</p>
+        <p className='cursor-pointer text-white'
+        onClick={() => setIsCartOpen(false)}>Home</p>
+        <p className='cursor-pointer text-white'
+        onClick={() => setIsCartOpen(true)}>Cart</p>
       </div>
-      <button className='text-white'>login</button>
+      <button className='text-white'>Login</button>
     </div>
   )
 }

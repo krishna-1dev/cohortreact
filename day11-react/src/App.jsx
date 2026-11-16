@@ -1,20 +1,48 @@
-import axios from 'axios'
-import React from 'react'
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
+import ProductCards from "./components/ProductCard";
+import CartScreen from "./pages/CartScreen";
+import { MyStore } from "./context/MyContext";
 
 const App = () => {
-  const getProductsData = async() => {
+  let { isCartOpen, cartItems } = useContext(MyStore);
+
+  const [productsData, setProductsData] = useState([]);
+  console.log(productsData);
+
+  const getProductsData = async () => {
     try {
-      let response = await axios.get('https://fakestoreapi.com/products');
-      console.log(response.data); //data is in the promise 
-    } catch(error) {
-      console.log("error in API", error);
+      let res = await axios("https://fakestoreapi.com/products");
+      setProductsData(res.data);
+    } catch (error) {
+      console.log("error in api", error);
     }
-  }
-  getProductsData();
-  
+  };
+
+  useEffect(() => {
+    getProductsData();
+  }, []);
+
   return (
-    <div>
-     <h1>hello friends</h1>
+    <div className="h-screen p-2 flex flex-col gap-4">
+      <Navbar />
+
+      {isCartOpen ? (
+        <div className="">
+          <CartScreen />
+        </div>
+      ) : (
+        <div className="grid grid-cols-4 gap-4">
+          {productsData.map((elem) => {
+            let isInCart = cartItems.find((val) => val.id === elem.id);
+
+            return (
+              <ProductCards key={elem.id} product={elem} isInCart={isInCart} />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
